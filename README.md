@@ -1,5 +1,10 @@
 # front
 
+## git clone
+ローカルの任意のディレクトリで
+$ mkdir blog-app 
+$ git clone ~
+
 ## Build Setup
 
 ```bash
