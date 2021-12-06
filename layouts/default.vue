@@ -1,11 +1,44 @@
 <template>
   <v-app :dark="setTheme">
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
+    <v-app-bar
+      :clipped-left="clipped"
       fixed
       app
+      color="green accent-3"
+    >
+      <v-toolbar-title v-text="title" />
+      <v-spacer />
+      <div class="flex justify-center">
+        <v-btn 
+          v-for="menu in menus"
+          :key="menu" 
+          text
+          x-large
+          color="white"
+        >
+          {{ menu }}
+        </v-btn>
+      </div>
+      <div class="px-4 pt-6">
+        <v-switch :label="`Dark Mode`" v-model="goDark"></v-switch>
+      </div>
+      <v-btn
+        icon
+        @click.stop="rightDrawer = !rightDrawer"
+      >
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
+    </v-app-bar>
+    <v-main>
+      <v-container>
+        <Nuxt />
+      </v-container>
+    </v-main>
+    <v-navigation-drawer
+      v-model="rightDrawer"
+      :right="right"
+      temporary
+      fixed
     >
       <v-list>
         <v-list-item
@@ -24,64 +57,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
-      <!-- <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn> -->
-      <!-- <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn> -->
-      <!-- <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn> -->
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <div class="px-4 pt-6">
-        <v-switch :label="`Dark Mode`" v-model="goDark"></v-switch>
-      </div>
-      <!-- <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn> -->
-    </v-app-bar>
-    <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
-    </v-main>
-    <!-- <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer> -->
     <v-footer
       app
     >
@@ -97,7 +72,6 @@ export default {
       clipped: false,
       drawer: false,
       goDark: false,
-      // fixed: false,
       items: [
         {
           icon: 'mdi-apps',
@@ -109,6 +83,11 @@ export default {
           title: 'Inspire',
           to: '/inspire'
         }
+      ],
+      menus: [
+        'HOME',
+        'PLOFILE',
+        'CONTACT'
       ],
       miniVariant: false,
       right: true,
