@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-full">
     <div>
       <v-card
         class="my-3"
@@ -53,5 +53,8 @@ export default {
 <style scoped>
   .pointer {
     cursor: pointer;
+  }
+  .h-full {
+    min-height: 100vh;
   }
 </style>

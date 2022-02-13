@@ -1,16 +1,18 @@
 <template>
   <div>
     <v-card
-      class="my-3"
+      class="my-3 px-10"
       min-height=150vh
     >
-        <v-card-title class="text-h5">
+      <div class="pt-10 pl-10">
+        <v-card-title class="text-h3">
           {{ posts.article_title }}
         </v-card-title>
-        <v-card-subtitle>
+        <v-card-subtitle class="pt-5">
           作成日 : {{ posts.created_at }} , 更新日 : {{ posts.updated_at }}
         </v-card-subtitle>
-        <div class="pl-8 mt-4" v-html="$md.render(content)"></div>
+      </div>
+      <div class="pl-10 mt-10" v-html="$md.render(content)"></div>
     </v-card>
   </div>
 </template>

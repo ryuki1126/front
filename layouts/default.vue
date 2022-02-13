@@ -42,26 +42,28 @@
               elevation="2"
               class="my-3"
             >
-              <v-card-title class="text-h5">PROFILE</v-card-title>
+              <v-card-title class="text-h5 pt-8 pl-8">PROFILE</v-card-title>
               <div class="d-flex justify-center pt-6">
                 <v-avatar size="100">
                   <img
                     alt="user"
-                    src="https://cdn.pixabay.com/photo/2020/06/24/19/12/cabbage-5337431_1280.jpg"
+                    src="~/assets/images/icon.jpg"
                   >
                 </v-avatar>
               </div>
               <div class="text-center px-4 pt-4">
                 <h3>Ryuki</h3>
-                <div class="pt-4">
+                <div class="pt-4 px-10">
                   <p>
-                    大阪在住 Webエンジニア<br>
-                    1996/11/26生まれ<br>
-                    Vue.js,Nuxt.js,Laravel等モダンな技術を学んで得た知識をアウトプットしていきます
+                    大阪在住 Webエンジニア.<br>
+                    1996/11/26生まれ.<br>
+                    日曜エンジニアが日々学んだことや詰まったことを備忘録として残していきます.<br>
+                    今は主にNuxt.js,Laravelを勉強中.
                   </p>
                 </div>
               </div>
-              <v-card-title class="text-h5 pt-16">TOP3 ARTICLE</v-card-title>
+              <!-- TODO: 記事ランキング機能の実装後具体的に着手していく -->
+              <!-- <v-card-title class="text-h5 pt-16">TOP3 ARTICLE</v-card-title> -->
             </v-card>
           </v-col>
         </v-row>  
@@ -82,30 +84,18 @@ export default {
       clipped: false,
       drawer: false,
       goDark: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
       menus: [
         {
           name: 'TOP',
           to: '/'
         },
-        {
-          name: 'RANKING',
-          to: '/'
-        },
+        // {
+        //   name: 'RANKING',
+        //   to: '/'
+        // },
         {
           name: 'CONTACT',
-          to: '/'
+          to: '/contact'
         }
       ],
       miniVariant: false,
